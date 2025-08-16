@@ -1,10 +1,18 @@
 package test;
 
 import org.junit.jupiter.api.Test;
+
+import puerto_nautico.Barco;
+import puerto_nautico.EmbarcacionAMotor;
+import puerto_nautico.Persona;
+import puerto_nautico.Puerto;
+import puerto_nautico.Velero;
+import puerto_nautico.Yate;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Actividad0133Test {
-    @Test
+	@Test
     void test01() {
         Persona enrique = new Persona("Enrique Iglesias", "71456456H");
         Persona juan = new Persona("Juan Magan", "76233233K");
@@ -52,3 +60,4 @@ public class Actividad0133Test {
 
         miPuerto.verEstadoAmarres();
     }
+}
