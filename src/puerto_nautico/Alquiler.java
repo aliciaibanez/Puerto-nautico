@@ -20,22 +20,20 @@ public class Alquiler {
 	}
 
 	public double getPrecio() {
-	    double precioFinal = getNumeroDias() * (10 * getBarco().getEslora());
 
-	    if (getBarco() instanceof Velero) {
-	        Velero velero = (Velero) getBarco();
-	        precioFinal += 300 * velero.getNumeroMastiles();
-	    } 
-	    else if (getBarco() instanceof Yate) {
-	        Yate yate = (Yate) getBarco();
-	        precioFinal += 300 * (yate.getPotencia() + yate.getNumCamarotes());
-	    }
-	    else if (getBarco() instanceof EmbarcacionAMotor) {
-	    	EmbarcacionAMotor deportivo = (EmbarcacionAMotor) getBarco();
-	        precioFinal += 300 * deportivo.getPotencia();
-	    } 
-	    
-	    
+		double precioFinal = 0;
+
+		if (getBarco() instanceof Velero velero) {
+			precioFinal = (getNumeroDias() * (10 * velero.getEslora())) + 300 * (velero.getCoeficienteBernua());
+			
+		} else if (getBarco() instanceof Yate yate) {
+			precioFinal = (getNumeroDias() * (10 * yate.getEslora()))
+					+ 300 * (yate.getCoeficienteBernua());
+			
+		} else if (getBarco() instanceof EmbarcacionAMotor embarcacionAMotor) {
+			precioFinal = (getNumeroDias() * (10 * embarcacionAMotor.getEslora()))
+					+ 300 * (embarcacionAMotor.getCoeficienteBernua());
+		}
 
 		return precioFinal;
 	}
